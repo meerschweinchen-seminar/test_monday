@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee");
+
+:root {
+  /* Color scheme created by me using Coolors.co (https://coolors.co/191716-433a3f-ed1f70-2d3047-6ecafa) */
+  /* Colors named using the Name that Color tool (http://chir.ag/projects/name-that-color/) */
+
+  --f-family-main: "Bungee";
+
+  --c-cod-gray: #191716;
+  --c-tundora: #433a3f;
+  --c-razzmatazz: #ed1f70;
+  --c-ebony-clay: #2d3047;
+  --c-malibu: #6ecafa;
+
+  --c-ebony-clay-0: #2d304700;
+  --c-ebony-clay-20: #2d304733;
+  --c-ebony-clay-40: #2d304766;
+  --c-ebony-clay-60: #2d304799;
+  --c-ebony-clay-80: #2d3047cc;
+
+  --m-width: 1920px;
+  --m-height: 1080px;
+  --m-sidebar-width: 400px;
+  --m-sidebar-height: 1030px;
+  --m-sidebar-item-width: 300px;
+  --m-bottom-height: 50px;
+  --m-webcam-height: 300px;
+  --m-chat-height: 600px;
+  --m-breathing-room: 5px;
+
+  --b-standard: 8px solid var(--c-razzmatazz);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.canvas {
+  width: var(--m-width);
+  height: var(--m-height);
+  background-color: transparent;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.canvas_right {
+  width: var(--m-sidebar-width);
+  height: var(--m-sidebar-height);
+  align-self: flex-end;
+  display: grid;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: space-between;
+          align-items: space-between;
+}
+
+.canvas_right.canvas_right-gradient {
+  background-image: -webkit-gradient(
+    linear,
+    left top, right top,
+    from(var(--c-ebony-clay-0)),
+    color-stop(20%, var(--c-ebony-clay-60)),
+    color-stop(40%, var(--c-ebony-clay-80)),
+    to(var(--c-ebony-clay))
+  );
+  background-image: linear-gradient(
+    to right,
+    var(--c-ebony-clay-0) 0%,
+    var(--c-ebony-clay-60) 20%,
+    var(--c-ebony-clay-80) 40%,
+    var(--c-ebony-clay) 100%
+  );
+}
+
+.widget {
+  width: var(--m-sidebar-item-width);
+  border: var(--b-standard);
+  border-radius: var(--b-standard-radius);
+  margin-right: 30px;
+  position: relative;
+}
+
+.widget::before,
+.widget::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.widget::before {
+  border-width: 1em;
+  border-right-color: var(--c-razzmatazz);
+  border-top-color: var(--c-razzmatazz);
+}
+
+.widget::after {
+  border-radius: 0.4em;
+  border-width: 0.9em;
+  border-right-color: var(--c-razzmatazz);
+  border-top-color: var(--c-razzmatazz);
+}
+
+.widget::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.widget::before {
+  border-width: 1em;
+  border-right-color: var(--c-razzmatazz);
+  border-top-color: var(--c-razzmatazz);
+}
+
+.widget::after {
+  border-radius: 0.4em;
+  border-width: 0.9em;
+  border-right-color: var(--c-razzmatazz);
+  border-top-color: var(--c-razzmatazz);
+}
+
+.widget-webcam {
+  height: var(--m-webcam-height);
+  margin-top: 45px;
+}
+
+.widget-chat {
+  height: var(--m-chat-height);
+}
+
+.canvas_bottom {
+  height: var(--m-bottom-height);
+  width: 100%;
+  background-color: var(--c-razzmatazz);
+  align-self: flex-end;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+}
+
+.title {
+  margin-left: var(--m-breathing-room) * 2;
+  font-family: var(--f-family-main);
+  font-size: 30px;
+}
+
+.links {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: var(--m-bottom-height);
+  justify-content: space-around;
+  -webkit-box-align: center;
+          align-items: center;
+  font-family: var(--f-family-main);
+}
+
+.links_link {
+  display: -webkit-box;
+  display: flex;
+  font-size: 18px;
+}
+
+span {
+  margin-left: var(--m-breathing-room);
+}
+
+.link_label {
+  color: var(--c-tundora);
+  opacity: 90%;
+  font-size: 12px;
+  margin-right: var(--m-breathing-room);
+  margin-top: var(--m-breathing-room);
+  align-self: center;
+}
+
+
+/*# sourceMappingURL=/main.af46ece4.css.map */

@@ -1,0 +1,305 @@
+@font-face {
+  font-family: NeoncityDisplay;
+  src: url(./assets/NeoncityDisplay.otf);
+}
+
+@font-face {
+  font-family: NeoncityScript;
+  src: url(./assets/NeoncityScript.otf);
+}
+
+:root {
+  /* Color scheme created by me using Coolors.co (https://coolors.co/191716-433a3f-ed1f70-2d3047-6ecafa) */
+  /* Colors named using the Name that Color tool (http://chir.ag/projects/name-that-color/) */
+
+  --f-family-main: "NeoncityScript", cursive, sans-serif;
+  --f-family-display: "NeoncityDisplay";
+
+  --c-ebony-clay: #2d3047;
+  --c-white: #eeeeee;
+  --c-black: #111111;
+  --c-neon-blue: rgb(198, 226, 255);
+  --c-neon-blue-over: 202, 228, 225;
+  --c-neon-blue-under: 30, 132, 242;
+  --c-neon-blue-root: 198, 226, 255;
+  --c-neon-pink: rgb(255, 204, 232);
+  --c-neon-pink-over: 255, 155, 210;
+  --c-neon-pink-under: 255, 211, 235;
+  --c-neon-pink-root: 255, 204, 232;
+
+  --c-ebony-clay-0: #2d304700;
+  --c-ebony-clay-20: #2d304733;
+  --c-ebony-clay-40: #2d304766;
+  --c-ebony-clay-60: #2d304799;
+  --c-ebony-clay-80: #2d3047cc;
+
+  --m-width: 1920px;
+  --m-height: 1080px;
+  --m-sidebar-width: 400px;
+  --m-sidebar-height: 1030px;
+  --m-sidebar-item-width: 300px;
+  --m-bottom-height: 50px;
+  --m-webcam-height: 300px;
+  --m-chat-height: 600px;
+  --m-breathing-room: 5px;
+
+  --b-standard: 8px solid var(--c-neon-pink);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Uncomment this if you need to test on dark */
+body {
+  background-color: black;
+}
+
+.btn {
+  font-family: var(--f-family-main);
+  color: var(--c-neon-pink);
+  animation: neon_pink 0.08s ease-in-out infinite alternate;
+  font-size: 50px;
+  width: 320px;
+  height: 100px;
+  border: var(--b-standard);
+  background: url(./assets/brick-wall-black.png);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 5px;
+  font-weight: 100;
+}
+
+.canvas {
+  width: var(--m-width);
+  height: var(--m-height);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.canvas-offline {
+  width: 100vw;
+  height: 100vh;
+  background: url(./assets/brick-wall-black.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas_right {
+  width: var(--m-sidebar-width);
+  height: var(--m-sidebar-height);
+  display: grid;
+  align-self: flex-end;
+  justify-content: flex-end;
+  align-items: space-between;
+}
+
+.canvas_right.gradient {
+  background: url(./assets/brick-wall-black.png);
+}
+
+.mask1 {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    var(--c-ebony-clay-0) 0%,
+    var(--c-ebony-clay-60) 10%,
+    var(--c-ebony-clay-80) 30%,
+    var(--c-ebony-clay) 60%,
+    var(--c-ebony-clay) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    var(--c-ebony-clay-0) 0%,
+    var(--c-ebony-clay-60) 10%,
+    var(--c-ebony-clay-80) 30%,
+    var(--c-ebony-clay) 60%,
+    var(--c-ebony-clay) 100%
+  );
+}
+
+.widget {
+  width: var(--m-sidebar-item-width);
+  border: var(--b-standard);
+  outline: none;
+  border-radius: 0.5rem;
+  margin-right: 30px;
+  position: relative;
+  animation: neon_box 1s ease-in-out infinite alternate;
+}
+
+.widget-webcam {
+  height: var(--m-webcam-height);
+  margin-top: 45px;
+}
+
+.widget-chat {
+  height: var(--m-chat-height);
+}
+
+.canvas_line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  align-self: flex-start;
+  overflow: hidden;
+  background-color: #444444;
+}
+
+.canvas_line::after {
+  content: "";
+  position: absolute;
+  width: 10vw;
+  height: 1px;
+  left: -10vw;
+  align-self: flex-start;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    #444444 0%,
+    var(--c-neon-pink) 75%,
+    var(--c-neon-pink) 75%
+  );
+  animation: run 15s 0s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.5, 0.3, 0, 1);
+}
+
+@keyframes run {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+@keyframes neon_blue {
+  from {
+    text-shadow: 0 0 6px rgba(var(--c-neon-blue-over), 0.92),
+      0 0 30px rgba(var(--c-neon-blue-over), 0.34),
+      0 0 12px rgba(var(--c-neon-blue-under), 0.52),
+      0 0 21px rgba(var(--c-neon-blue-under), 0.92),
+      0 0 34px rgba(var(--c-neon-blue-under), 0.78),
+      0 0 54px rgba(var(--c-neon-blue-under), 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(var(--c-neon-blue-over), 0.98),
+      0 0 30px rgba(var(--c-neon-blue-over), 0.42),
+      0 0 12px rgba(var(--c-neon-blue-under), 0.58),
+      0 0 22px rgba(var(--c-neon-blue-under), 0.84),
+      0 0 38px rgba(var(--c-neon-blue-under), 0.88),
+      0 0 60px rgba(var(--c-neon-blue-under), 1);
+  }
+}
+
+@keyframes neon_pink {
+  from {
+    text-shadow: 0 0 6px rgba(var(--c-neon-pink-over), 0.92),
+      0 0 30px rgba(var(--c-neon-pink-over), 0.34),
+      0 0 12px rgba(var(--c-neon-pink-under), 0.52),
+      0 0 21px rgba(var(--c-neon-pink-under), 0.92),
+      0 0 34px rgba(var(--c-neon-pink-under), 0.78),
+      0 0 54px rgba(var(--c-neon-pink-under), 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(var(--c-neon-pink-over), 0.98),
+      0 0 30px rgba(var(--c-neon-pink-over), 0.42),
+      0 0 12px rgba(var(--c-neon-pink-under), 0.58),
+      0 0 22px rgba(var(--c-neon-pink-under), 0.84),
+      0 0 38px rgba(var(--c-neon-pink-under), 0.88),
+      0 0 60px rgba(var(--c-neon-pink-under), 1);
+  }
+}
+
+@keyframes neon_box {
+  from {
+    box-shadow: 0 0 2px rgba(var(--c-neon-pink-over), 0.92),
+      0 0 10px rgba(var(--c-neon-pink-over), 0.34),
+      0 0 4px rgba(var(--c-neon-pink-under), 0.52),
+      0 0 7px rgba(var(--c-neon-pink-under), 0.92),
+      0 0 16px rgba(var(--c-neon-pink-under), 0.78),
+      0 0 25px rgba(var(--c-neon-pink-under), 0.92);
+  }
+  to {
+    box-shadow: 0 0 2px rgba(var(--c-neon-pink-over), 0.92),
+      0 0 10px rgba(var(--c-neon-pink-over), 0.34),
+      0 0 4px rgba(var(--c-neon-pink-under), 0.52),
+      0 0 7px rgba(var(--c-neon-pink-under), 0.92),
+      0 0 16px rgba(var(--c-neon-pink-under), 0.78),
+      0 0 25px rgba(var(--c-neon-pink-under), 0.92);
+  }
+}
+
+.canvas_bottom {
+  height: var(--m-bottom-height);
+  width: 100%;
+  background: url(./assets/brick-wall-black.png);
+  align-self: flex-end;
+  display: flex;
+}
+
+.title {
+  margin-left: 15px;
+  margin-top: 5px;
+  font-family: var(--f-family-main);
+  font-size: 45px;
+  color: var(--c-neon-pink);
+  animation: neon_pink 0.08s ease-in-out infinite alternate;
+}
+
+.title-offline {
+  margin-left: 15px;
+  margin-top: 5px;
+  font-family: var(--f-family-main);
+  font-size: 125px;
+  color: var(--c-neon-pink);
+  animation: neon_pink 0.08s ease-in-out infinite alternate;
+  line-height: 1;
+}
+
+.socialMedia {
+  font-family: var(--f-family-main);
+  font-size: 40px;
+  color: var(--c-neon-blue);
+  animation: neon_blue 0.08s ease-in-out infinite alternate;
+  line-height: 1;
+}
+
+.socialMedia > i {
+  margin-right: 15px;
+}
+
+/* TODO: Consider making this part constantly scroll? Especially if I determine any more information I want to place along the bottom */
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  font-family: var(--f-family-main);
+  color: var(--c-neon-blue);
+}
+
+.links_link {
+  font-size: 36px;
+  color: var(--c-neon-blue);
+}
+
+.link_item {
+  margin-left: var(--m-breathing-room);
+  animation: neon_blue 0.08s ease-in-out infinite alternate;
+}
+
+.link_label {
+  opacity: 90%;
+  font-size: 24px;
+  margin-right: var(--m-breathing-room);
+  margin-top: var(--m-breathing-room);
+  color: var(--c-neon-pink);
+  animation: neon_pink 0.08s ease-in-out infinite alternate;
+}

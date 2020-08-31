@@ -1,0 +1,20 @@
+{
+  "name": "stream-overlays",
+  "version": "0.0.1",
+  "description": "Mah streem overLays™",
+  "scripts": {
+    "serve": "serve src",
+    "blast": "rimraf ./.cache ./dist",
+    "delet": "rimraf ./node_modules",
+    "delete": "yarn blast && yarn delet"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.3",
+    "rimraf": "^3.0.0",
+    "serve": "^11.2.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "serialize-to-js": "^3.0.2"
+  }
+}
